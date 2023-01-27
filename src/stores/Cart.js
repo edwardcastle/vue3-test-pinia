@@ -7,9 +7,10 @@ export const useCart = defineStore("cart", () => {
   function addProduct(product) {
     cart.value.push(product);
   }
-  function deleteProduct(id) {}
+  const totalPrice = () =>
+    computed(() => cart.value.reduce((total, cart) => total + cart.price, 0));
 
   const cardLength = () => computed(() => cart.value.length);
 
-  return { cart, cardLength, addProduct, deleteProduct };
+  return { cart, cardLength, addProduct, totalPrice };
 });

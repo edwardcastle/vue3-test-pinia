@@ -1,7 +1,9 @@
 <script setup>
 import { onMounted } from "vue";
 import { useProducts } from "../stores/Proucts";
+import { useCart } from "../stores/Cart";
 const products = useProducts();
+const cart = useCart();
 onMounted(async () => {
   await products.getAllProducts();
 });
@@ -22,10 +24,12 @@ onMounted(async () => {
         <div class="px-5 pb-5">
           <div class="flex items-center justify-between mt-5">
             <span class="text-3xl font-bold text-gray-900 dark:text-white">{{
-              `$${product.price}`
+              `$${product.price.toFixed(2)}`
             }}</span>
-            <a class="text-white bg-blue-700 px-5 py-2 rounded pointer"
-              >Anadir al carrito</a
+            <a
+              class="text-white bg-green-400 px-5 py-2 rounded cursor-pointer"
+              @click="cart.addProduct(product)"
+              >Add to cart</a
             >
           </div>
         </div>
