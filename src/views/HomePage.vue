@@ -30,8 +30,6 @@ const cart = useCart();
         Go to cart</a
       >
     </div>
-
     <products-card />
-    <!-- end products -->
   </div>
 </template>
