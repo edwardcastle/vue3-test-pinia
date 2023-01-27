@@ -10,7 +10,7 @@ export const useCart = defineStore("cart", () => {
   const totalPrice = () =>
     computed(() => cart.value.reduce((total, cart) => total + cart.price, 0));
 
-  const cardLength = () => computed(() => cart.value.length);
+  const cartLength = () => computed(() => cart.value.length);
 
-  return { cart, cardLength, addProduct, totalPrice };
+  return { cart, cartLength, addProduct, totalPrice };
 });
